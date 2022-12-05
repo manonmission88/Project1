@@ -11,6 +11,7 @@ main:
  while:
  bgt $t2, 24, exit
  
+ #printing the message if number less than 25 
  li $v0, 4
  la $a0, illegal
  syscall
@@ -49,6 +50,11 @@ fib:
  li $v0,1
  #starts from 0
  li $t7, 0 
+
+#checking if value ==0
+beq $t5, 0, done
+#checking if value !=0
+bne $t5, 1, else
 
 
  .data
