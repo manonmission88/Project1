@@ -45,7 +45,7 @@ fib:
  li $t2, 0 #func 
  li $t3, 1 #func1
  li $t4, 1 #func2
- move $t5, $a0 #updated the integer from prompt and move to $t5
+ move $t5, $a0 #updated the integer from prompt by moving 
  sub $t6, $t5, 2
  li $v0,1
  #starts from 0
