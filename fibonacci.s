@@ -53,9 +53,33 @@ fib:
 
 #checking if value ==0
 beq $t5, 0, done
-#checking if value !=0
+#checking if value !=1
 bne $t5, 1, else
 
+# if value not equal to 1 
+else: 
+ li $v0,1
+ #print func =0
+ move $a0, $t2 
+ syscall
+ li $v0, 4 
+ #print new line
+ la $a0, newline 
+ syscall 
+ li $v0,1
+ #print func = 1
+ move $a0, $t3 
+ syscall
+ li $v0, 4 
+ la $a0, newline 
+ syscall 
+ li $v0,1
+ #print func==2
+ move $a0, $t4 
+ syscall
+ li $v0, 4 
+ la $a0, newline
+ syscall
 
  .data
  prompt: .asciiz "Please enter an integer: "
