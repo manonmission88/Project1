@@ -81,6 +81,32 @@ else:
  la $a0, newline
  syscall
 
+ loop:
+ #ranging $t7,$t6==i
+ beq $t7, $t6, done # for i in range $t4, $t5 == i.
+ #func = func1 + func2
+ add $t2, $t3, $t4 
+ #assining previous func with th new one 
+ #func1 = func2
+ add $t3, $zero, $t4 
+ #func2 = func
+ add $t4, $zero, $t2 
+ li $v0,1
+ #printing func
+ move $a0, $t2 
+ syscall 
+ li $v0, 4 
+ la $a0, newline 
+ syscall 
+ # increasing loop --> i by 1 
+ addi $t7, $t7, 1 
+ j loop # jumping back to loop
+
+#terminating the program
+done:
+ li $v0, 10 
+ syscall
+
  .data
  prompt: .asciiz "Please enter an integer: "
  output: .asciiz "\nYou typed the number "
